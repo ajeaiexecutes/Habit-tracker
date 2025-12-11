@@ -15,10 +15,10 @@ export default function RegisterPage() {
       body: JSON.stringify({ email, password })
     });
     
-    const data = await res.json();
-    console.log(data)
+    // const data = await Response.json();
+    // console.log(data)
     redirect('/dashboard')
-    alert(data.message);
+    // alert(data.message);
   }
 
   return (
