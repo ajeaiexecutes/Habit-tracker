@@ -1,5 +1,6 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import { useState } from "react";
 
 export default function RegisterPage() {
@@ -13,9 +14,10 @@ export default function RegisterPage() {
       method: "POST",
       body: JSON.stringify({ email, password })
     });
-
+    
     const data = await res.json();
     console.log(data)
+    redirect('/dashboard')
     alert(data.message);
   }
 
