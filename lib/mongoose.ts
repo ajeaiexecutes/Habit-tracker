@@ -1,12 +1,28 @@
 import mongoose from "mongoose";
 
-
 export async function connectDB() {
-  if (mongoose.connection.readyState>=1){
-    return 
+  if (mongoose.connection.readyState >= 1) {
+    return;
   }
-  const uri=process.env.DATABASE_URL!;
 
-  // if(!uri) throw new Error("DATABASE_URL not found in .env")
-    return mongoose.connect(uri)
+  const uri = process.env.DATABASE_URL!;
+
+  if (!uri) {
+    throw new Error("DATABASE_URL missing in environment variables");
   }
+
+  return mongoose.connect(uri);
+}
+
+// import mongoose from "mongoose";
+
+
+// export async function connectDB() {
+//   if (mongoose.connection.readyState>=1){
+//     return 
+//   }
+//   const uri=process.env.DATABASE_URL!;
+
+//   // if(!uri) throw new Error("DATABASE_URL not found in .env")
+//     return mongoose.connect(uri)
+//   }
