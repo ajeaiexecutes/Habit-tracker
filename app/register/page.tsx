@@ -16,7 +16,7 @@ export default function RegisterPage() {
     });
     
     // const data = await Response.json();
-    // console.log(data)
+    console.log(res)
     redirect('/dashboard')
     // alert(data.message);
   }
