@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     console.error("REGISTER ERROR:", error);
 
     return Response.json(
-      { error: "Internal Server Error" },
+      { error: "Internal Server Errorrrrrr" },
       { status: 500 }
     );
   }
