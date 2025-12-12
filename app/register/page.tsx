@@ -1,9 +1,10 @@
 "use client";
 
-import { redirect } from "next/navigation";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function RegisterPage() {
+  const router=useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,7 +22,8 @@ export default function RegisterPage() {
     // const data = await Response.json();
     console.log("result",res)
     alert("success");
-    redirect('/dashboard')
+    router.push("/dashboard")
+
     } catch (error) {
       return Response.json({error:error})
     }
