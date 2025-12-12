@@ -20,9 +20,14 @@ export default function RegisterPage() {
     });
     
     // const data = await Response.json();
-    console.log("result",res)
+    if(res.ok){
+      console.log("result",res)
     alert("success");
     router.push("/dashboard")
+    }
+    else{
+      alert("failed")
+    }
 
     } catch (error) {
       return Response.json({error:error})
