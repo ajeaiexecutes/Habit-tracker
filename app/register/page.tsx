@@ -10,15 +10,21 @@ export default function RegisterPage() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    const res = await fetch("/api/auth/register", {
+    try {
+      const res = await fetch("/api/auth/register", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
+
       body: JSON.stringify({ email, password })
     });
     
     // const data = await Response.json();
-    console.log(res)
+    console.log("result",res)
+    alert("success");
     redirect('/dashboard')
-    // alert(data.message);
+    } catch (error) {
+      return Response.json({error:error})
+    }
   }
 
   return (
